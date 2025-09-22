@@ -2,192 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Story Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Story</title>
   <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #1e1e1e;
-      --accent-color: #3e4c59;
-      --link-color: #5c7cfa;
-      --header-bg: #f5f5f5;
-    }
-
-    body.dim {
-      --bg-color: #1e1e1e;
-      --text-color: #dcdcdc;
-      --accent-color: #ced4da;
-      --link-color: #91a7ff;
-      --header-bg: #2a2a2a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
       font-family: 'Georgia', serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.7;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    header {
-      background-color: var(--header-bg);
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    header h1 {
+      background: #ffffff;
+      color: #222;
       margin: 0;
-      font-size: 2.2rem;
-      color: var(--accent-color);
-    }
-
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1rem;
-    }
-
-    .toggle-switch {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .toggle-switch button {
-      background: none;
-      border: 1px solid var(--accent-color);
-      color: var(--accent-color);
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .toggle-switch button:hover {
-      background: var(--accent-color);
-      color: var(--bg-color);
-    }
-
-    nav {
-      background: #f0f0f0;
-      padding: 1rem;
+      padding: 2rem;
       text-align: center;
     }
 
-    nav a {
-      margin: 0 1rem;
-      color: var(--link-color);
-      text-decoration: none;
-      font-weight: 600;
+    h1 {
+      color: #333;
+      margin-bottom: 2rem;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      padding: 2rem 1.5rem;
-      max-width: 800px;
+    .search-container {
+      position: relative;
+      max-width: 400px;
       margin: auto;
     }
 
-    section {
-      margin-bottom: 3rem;
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    section h2 {
-      color: var(--accent-color);
-      font-size: 1.6rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.5rem;
+    .suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-top: none;
+      z-index: 1000;
+      border-radius: 0 0 6px 6px;
+      max-height: 200px;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .suggestions div {
+      padding: 0.75rem;
+      cursor: pointer;
+    }
+
+    .suggestions div:hover {
+      background: #f0f0f0;
     }
 
     footer {
-      text-align: center;
+      margin-top: 5rem;
+      color: #aaa;
       font-size: 0.9rem;
-      color: #999;
-      padding: 2rem 1rem;
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        display: flex;
-        flex-direction: column;
-      }
-
-      nav a {
-        margin: 0.5rem 0;
-      }
-
-      .toggle-switch {
-        top: 0.5rem;
-        right: 0.5rem;
-      }
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
-  <div class="toggle-switch">
-    <button onclick="toggleTheme()">Switch Theme</button>
+
+  <h1>📚 Story Library</h1>
+
+  <div class="search-container">
+    <input type="text" id="storySearch" placeholder="Search stories..." autocomplete="off">
+    <div class="suggestions" id="suggestionBox"></div>
   </div>
 
-  <header>
-    <h1>Story Title</h1>
-    <p>by Author Name</p>
-  </header>
-
-  <nav>
-    <a href="#chapter1">Chapter 1</a>
-    <a href="#chapter2">Chapter 2</a>
-    <a href="#chapter3">Chapter 3</a>
-    <!-- Add more chapter links -->
-  </nav>
-
-  <main>
-    <section id="chapter1">
-      <h2>Chapter 1: Dawn</h2>
-      <p>
-        The morning light crept across the hills, quiet and golden. In the stillness, she heard something call her — not a sound, but a knowing.
-      </p>
-      <p>
-        [Write your full story here...]
-      </p>
-    </section>
-
-    <section id="chapter2">
-      <h2>Chapter 2: The Path</h2>
-      <p>
-        Leaves rustled as the wind danced through the trees. The path forward was uncertain, but her heart had never been surer.
-      </p>
-    </section>
-
-    <section id="chapter3">
-      <h2>Chapter 3: Secrets Beneath</h2>
-      <p>
-        The walls whispered truths the world had long forgotten. Every step echoed with history, and with warning.
-      </p>
-    </section>
-
-    <!-- Add more sections as needed -->
-  </main>
-
-  <footer>
-    &copy; 2025 Your Name. All rights reserved.
-  </footer>
+  <footer>&copy; 2025 Story Collection</footer>
 
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dim');
-    }
+    const stories = [
+      { title: "The Silent Valley", file: "story1.html" },
+      { title: "Echoes of Tomorrow", file: "story2.html" }
+    ];
+
+    const input = document.getElementById('storySearch');
+    const suggestionBox = document.getElementById('suggestionBox');
+
+    input.addEventListener('input', () => {
+      const value = input.value.toLowerCase();
+      suggestionBox.innerHTML = '';
+      if (value) {
+        const matches = stories.filter(s => s.title.toLowerCase().includes(value));
+        matches.forEach(story => {
+          const div = document.createElement('div');
+          div.textContent = story.title;
+          div.onclick = () => window.location.href = story.file;
+          suggestionBox.appendChild(div);
+        });
+      }
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const match = stories.find(s => s.title.toLowerCase() === input.value.toLowerCase());
+        if (match) window.location.href = match.file;
+      }
+    });
   </script>
+
 </body>
 </html>
