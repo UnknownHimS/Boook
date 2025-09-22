@@ -5,15 +5,26 @@
   <title>Story Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Georgia', serif;
-      background: url('https://wallpapercave.com/wp/wp6298072.jpg');background-size:cover;
-      background-repeat:no-repeat;
-      background-position:center;
+      background: url('https://wallpapercave.com/wp/wp6298072.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #222;
-      margin: 0;
-     
       text-align: center;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content {
+      flex: 1; /* Take all available vertical space */
+      padding: 2rem 1rem;
     }
 
     h1 {
@@ -60,36 +71,36 @@
     }
 
     footer {
-      margin-top: 5rem;
-      color: #aaa;
       font-size: 0.9rem;
+      color: #aaa;
     }
-   
+
+    .footer-image {
+      width: 100%;
+      height: 120px;
+      background-image: url('https://images.wallpapersden.com/image/download/dreamy-hd-anime-landscape_bmdqaGWUmZqaraWkpJRmbmdsrWZlbWU.jpg');
+      background-size: cover;
+      background-position: bottom;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+      border-radius: 12px 12px 0 0;
+    }
   </style>
 </head>
 <body>
 
+  <div class="content">
+    <h1 style="color:black;opacity:.8;">Welcome to the Story Library</h1>
 
-
-
-  <h1 style="color:black;opacity:.8;">Welcome to the Story Library</h1>
-
-  <div class="search-container">
-    <input type="text" id="storySearch" placeholder="Search for a story... avail: Your Detective ex" autocomplete="off">
-    <div class="suggestions" id="suggestionBox"></div>
+    <div class="search-container">
+      <input type="text" id="storySearch" placeholder="Search for a story... avail: Your Detective ex" autocomplete="off">
+      <div class="suggestions" id="suggestionBox"></div>
+    </div>
   </div>
 
-  <footer>&copy; 2025 Story Archive</footer>
-  <div style="
-    width: 100%;
-    height: 100px;
-    background-image: url('https://images.wallpapersden.com/image/download/dreamy-hd-anime-landscape_bmdqaGWUmZqaraWkpJRmbmdsrWZlbWU.jpg');
-    background-size: cover;
-    background-position: bottom;
-    
-    box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
-   
-  "></div>
+  <footer>
+    <div>&copy; 2025 Story Archive</div>
+    <div class="footer-image"></div>
+  </footer>
 
   <script>
     const stories = [
