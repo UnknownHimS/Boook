@@ -7,22 +7,23 @@
   <style>
     body {
       font-family: 'Georgia', serif;
-      background: #ffffff;
+      background: url('https://wallpapercave.com/wp/wp6298072.jpg');background-size:cover;
+      background-repeat:no-repeat;
+      background-position:center;
       color: #222;
       margin: 0;
-      padding: 2rem;
+     
       text-align: center;
     }
 
     h1 {
-      color: #333;
-      margin-bottom: 2rem;
+      color: #444;
     }
 
     .search-container {
       position: relative;
       max-width: 400px;
-      margin: auto;
+      margin: 2rem auto;
     }
 
     input[type="text"] {
@@ -43,10 +44,10 @@
       border: 1px solid #ddd;
       border-top: none;
       z-index: 1000;
-      border-radius: 0 0 6px 6px;
-      max-height: 200px;
-      overflow-y: auto;
       text-align: left;
+      border-radius: 0 0 6px 6px;
+      max-height: 190px;
+      overflow-y: auto;
     }
 
     .suggestions div {
@@ -63,22 +64,26 @@
       color: #aaa;
       font-size: 0.9rem;
     }
+   
   </style>
 </head>
 <body>
 
-  <h1>📚 Story Library</h1>
+
+
+
+  <h1 style="color:black;opacity:.8;">Welcome to the Story Library</h1>
 
   <div class="search-container">
-    <input type="text" id="storySearch" placeholder="Search stories..." autocomplete="off">
+    <input type="text" id="storySearch" placeholder="Search for a story..." autocomplete="off">
     <div class="suggestions" id="suggestionBox"></div>
   </div>
 
-  <footer>&copy; 2025 Story Collection</footer>
+  <footer>&copy; 2025 Story Archive</footer>
 
   <script>
     const stories = [
-      { title: "The Silent Valley", file: "story1.html" },
+      { title: "Your Detective ex", file: "story1.html" },
       { title: "Echoes of Tomorrow", file: "story2.html" }
     ];
 
@@ -88,6 +93,7 @@
     input.addEventListener('input', () => {
       const value = input.value.toLowerCase();
       suggestionBox.innerHTML = '';
+
       if (value) {
         const matches = stories.filter(s => s.title.toLowerCase().includes(value));
         matches.forEach(story => {
